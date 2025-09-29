@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>DOM - querySelectorAll()</title>
+  </head>
+
+  <body>
+    <div class="item">آیتم 1</div>
+
+    <div class="item">آیتم 2</div>
+
+    <script>
+      const allItems = document.querySelectorAll(".item");
+
+      allItems.forEach((item) => (item.style.padding = "100px"));
+    </script>
+  </body>
+</html>

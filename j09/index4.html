@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>پروژه عملی DOM و Events</title>
+  </head>
+
+  <body>
+    <h1>مدیریت وظایف</h1>
+
+    <input type="text" id="taskInput" placeholder="یک وظیفه جدید وارد کنید" />
+
+    <button id="addTaskButton">افزودن وظیفه</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+      const inputField = document.getElementById("taskInput");
+
+      const addButton = document.getElementById("addTaskButton");
+
+      const taskList = document.getElementById("taskList");
+
+      addButton.addEventListener("click", function () {
+        const taskText = inputField.value.trim();
+
+        if (taskText !== "") {
+          const li = document.createElement("li");
+
+          li.textContent = taskText;
+
+          li.addEventListener("click", function () {
+            li.style.textDecoration = "line-through";
+          });
+
+          taskList.appendChild(li);
+
+          inputField.value = ""; // پاک کردن فیلد ورودی
+        } else {
+          alert("لطفاً یک وظیفه وارد کنید");
+        }
+      });
+    </script>
+  </body>
+</html>

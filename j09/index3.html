@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+
+    <title>DOM - setAttribute()</title>
+  </head>
+
+  <body>
+    <a id="link" href="https://ayandehedu.ir" title="وب‌سایت قبلی">لینک</a>
+    <br />
+    <hr />
+    <br />
+    <button id="b">click</button>
+
+    <script>
+      const link = document.getElementById("link");
+      const btn = document.getElementById("b");
+      function toggle() {
+        link.setAttribute("href", "https://digikala.com");
+        link.setAttribute("title", "وب‌سایت جدید");
+      }
+      btn.addEventListener("click", toggle)
+    </script>
+  </body>
+</html>
