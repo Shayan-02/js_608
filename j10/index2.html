@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<input type="text" id="search" placeholder="جستجو...">
+
+<div id="results"></div>
+
+<script>
+
+  let debounceTimer;
+
+  document.getElementById("search").addEventListener("input", (e) => {
+
+    clearTimeout(debounceTimer); // لغو تایمر قبلی
+
+    debounceTimer = setTimeout(() => {
+
+      // شبیه‌سازی درخواست API
+
+      fetch(`https://api.example.com/search?q=${e.target.value}`)
+
+        .then(res => res.json())
+
+        .then(data => {
+
+          document.getElementById("results").innerHTML = JSON.stringify(data);
+
+        });
+
+    }, 500); // 500 میلی‌ثانیه تاخیر
+
+  });
+
+</script>
+
+</body>
+</html>
