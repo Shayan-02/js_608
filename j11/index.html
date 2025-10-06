@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>فرم ورود</title>
+    <link rel="stylesheet" href="./assets/css/style.css" />
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="logo">🔐</div>
+        <h2>ورود به سیستم</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">نام کاربری</label>
+                <input type="text" id="username" name="username" autocomplete="off" />
+                <span class="error-message" id="username-error"></span>
+            </div>
+            <div class="input-group">
+                <label for="password">رمز عبور</label>
+                <input type="password" id="password" name="password" autocomplete="off" />
+                <span class="error-message" id="password-error"></span>
+            </div>
+            <button type="submit">ورود</button>
+        </form>
+    </div>
+
+    <div id="customModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-icon" id="modalIcon"></div>
+            <p id="modalMessage"></p>
+        </div>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>

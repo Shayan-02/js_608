@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تغییر رنگ پس‌زمینه</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            direction: rtl;
+            font-family: vazir, sans-serif;
+            transition: 0.5s ease, color 0.5s ease;
+        }
+        .container {
+            height: 100vh;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            margin-bottom: 1.5rem;
+        }
+        .color-picker {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005f73;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>تغییر رنگ پس‌زمینه</h1>
+        <div class="color-picker">
+            <label for="colorInput">انتخاب رنگ:</label>
+            <input type="color" id="colorInput" value="#ff5733">
+        </div>
+        <button onclick="changeBackgroundColor()">تغییر رنگ</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
