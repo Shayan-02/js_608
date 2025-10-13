@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>تغییر تم دارک و لایت</title>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        transition: all 0.3s ease;
+        min-height: 100%;
+        padding: 2rem;
+      }
+
+      html {
+        height: 100%;
+      }
+
+      /* Light Theme */
+      body.light {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: #333;
+      }
+
+      /* Dark Theme */
+      body.dark {
+        background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+        color: #ecf0f1;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .dark .container {
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.8;
+        margin-bottom: 2rem;
+      }
+
+      .theme-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+      }
+
+      .toggle-button {
+        position: relative;
+        width: 80px;
+        height: 40px;
+        background: #ddd;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        outline: none;
+      }
+
+      .dark .toggle-button {
+        background: #555;
+      }
+
+      .toggle-slider {
+        position: absolute;
+        top: 4px;
+        right: 4px;
+        width: 32px;
+        height: 32px;
+        background: white;
+        border-radius: 50%;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .dark .toggle-slider {
+        transform: translateX(-40px);
+        background: #2c3e50;
+      }
+
+      .theme-label {
+        font-weight: 600;
+        font-size: 1.1rem;
+      }
+
+      .content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 15px;
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .dark .card {
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .card-title {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #ff6b6b;
+      }
+
+      .dark .card-title {
+        color: #4ecdc4;
+      }
+
+      .card-text {
+        line-height: 1.6;
+        opacity: 0.9;
+      }
+
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        background: rgba(76, 175, 80, 0.2);
+        border: 1px solid rgba(76, 175, 80, 0.3);
+        border-radius: 25px;
+        font-size: 0.9rem;
+        margin-top: 1rem;
+      }
+
+      .status-dot {
+        width: 8px;
+        height: 8px;
+        background: #4caf50;
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+      }
+
+      @keyframes pulse {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 2rem;
+          margin: 1rem;
+        }
+
+        .title {
+          font-size: 2rem;
+        }
+
+        .content {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="light">
+    <div class="container">
+      <div class="header">
+        <h1 class="title">تغییر تم صفحه</h1>
+        <p class="subtitle">با کلیک روی دکمه، بین تم روشن و تاریک تغییر دهید</p>
+      </div>
+
+      <div class="theme-toggle">
+        <span class="theme-label">☀️ روشن</span>
+        <button class="toggle-button" onclick="toggleTheme()">
+          <div class="toggle-slider">🌙</div>
+        </button>
+        <span class="theme-label">🌙 تاریک</span>
+      </div>
+
+      <div class="content">
+        <div class="card">
+          <h3 class="card-title">لورم</h3>
+          <p class="card-text">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+          </p>
+        </div>
+
+        <div class="card">
+          <h3 class="card-title">لورم</h3>
+          <p class="card-text">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ
+          </p>
+        </div>
+      </div>
+
+      <div class="status">
+        <div class="status-dot"></div>
+        <span>تم فعلی: <span id="current-theme">روشن</span></span>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const savedTheme = localStorage.getItem("theme") || "light";
+        applyTheme(savedTheme);
+      });
+
+      function toggleTheme() {
+        const body = document.body;
+        const currentTheme = body.classList.contains("dark") ? "dark" : "light";
+        const newTheme = currentTheme === "light" ? "dark" : "light";
+
+        applyTheme(newTheme);
+
+        localStorage.setItem("theme", newTheme);
+      }
+
+      function applyTheme(theme) {
+        const body = document.body;
+        const themeText = document.getElementById("current-theme");
+        const slider = document.querySelector(".toggle-slider");
+
+        body.classList.remove("light", "dark");
+
+        body.classList.add(theme);
+
+        themeText.textContent = theme === "light" ? "روشن" : "تاریک";
+
+        slider.textContent = theme === "light" ? "🌙" : "☀️";
+      }
+
+
+      document.addEventListener("keydown", function (e) {
+        if (e.ctrlKey && e.key === "t") {
+          e.preventDefault();
+          toggleTheme();
+        }
+      });
+    </script>
+  </body>
+</html>

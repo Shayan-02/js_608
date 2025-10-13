@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@font-face {
+  font-family: "Sans-Regular";
+  src: url(../fonts/Sans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Sans-Medium";
+  src: url(../fonts/Sans-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Sans-DemiBold";
+  src: url(../fonts/Sans-DemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Sans-Bold";
+  src: url(../fonts/Sans-Bold.ttf);
+}
+
+@layer utilities {
+
+  /* pure css dotted background patterns for dark and light mode */
+  .dark-pattern {
+    background-image: radial-gradient(rgba(225, 225, 225, 0.184) 1px,
+        transparent 0);
+    background-position: -19px -19px;
+    background-size: 45px 45px;
+  }
+
+  .light-pattern {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.264) 0.8px,
+        transparent 0);
+    background-position: -19px -19px;
+    background-size: 45px 45px;
+  }
+}
+
+body {
+  @apply font-Sans-Regular light-pattern dark:dark-pattern text-[#111111] dark:bg-[#111111] dark:text-zinc-100;
+}
+
+.header-component {
+  @apply fixed left-0 right-0 max-w-max bg-white p-1.5 rounded-lg mx-auto bottom-12 flex items-center dark:bg-[#191919] select-none justify-center gap-1 border dark:border-white/5;
+}
+
+.products {
+  @apply grid grid-cols-4 gap-4 child:w-full child:border child:dark:border-white/5 child:rounded-lg child:dark:bg-zinc-800/80 child:duration-150 child-hover:dark:bg-zinc-800/90 child-hover:bg-zinc-400/5;
+}
+
+li {
+  @apply list-none text-zinc-700 dark:text-zinc-300;
+
+  &>* {
+    @apply duration-150 size-10 flex items-center justify-center hover:dark:bg-zinc-800/80 hover:bg-zinc-400/5 rounded-md;
+  }
+}
+
+.active {
+  @apply dark:bg-zinc-800/80;
+}
+
+.content {
+  @apply container mt-20 mx-auto max-w-[700px] mb-32;
+}
+
+.user-profile {
+  @apply size-16 rounded-full;
+}
+
+.profile-card {
+  @apply flex font-Sans-Bold items-center gap-3;
+}
+
+.user-role {
+  @apply text-xs font-Sans-DemiBold dark:text-zinc-500 mt-2;
+}
+
+.data-section {
+  @apply my-10;
+
+  .section-title {
+    @apply text-xl font-Sans-Bold;
+  }
+
+  .section-content {
+    @apply mt-3 dark:text-zinc-400 text-zinc-600;
+  }
+}
+
+.product-link {
+  @apply w-full h-full p-3 flex items-center justify-center flex-col gap-2;
+}
+
+.product-img {
+  @apply size-20 rounded-md object-cover;
+}
+
+.product-title {
+  @apply text-xs;
+}
+
+.contact {
+  @apply text-sky-500;
+}
