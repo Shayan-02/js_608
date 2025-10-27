@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="shortcut icon" href="./assets/images/icons8-apple-16.png" type="image/x-icon">
+</head>
+<body>
+    <p>Lorem ipsum dolor sit amet.</p>
+    <button id="hidebtn">hide</button>
+    <button id="showbtn">show</button>
+    <button id="togglebtn">toggle</button>
+    <div id="box" style="width: 100px; height: 100px; background-color: red;"></div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#box").css("color", "red").slideUp(500).slideDown(500);
+        })
+    </script>
+</body>
+</html>
